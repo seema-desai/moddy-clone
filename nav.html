@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+header {
+    background-color: #333;
+    color: white;
+    padding: 0 20px;
+}
+
+.navbar-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo a {
+    color: white;
+    text-decoration: none;
+    font-size: 24px;
+}
+
+.nav-links {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-grow: 1;
+}
+
+.nav-links li {
+    position: relative;
+    margin-right: 20px;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    padding: 15px;
+    display: block;
+}
+
+.dropdown {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #444;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.dropdown li {
+    margin: 0;
+}
+
+.dropdown a {
+    padding: 10px;
+    color: white;
+}
+
+.nav-links li:hover .dropdown {
+    display: block;
+}
+
+.navbar-right {
+    display: flex;
+    align-items: center;
+}
+
+.search-input {
+    padding: 5px;
+    margin-right: 20px;
+    border: none;
+    border-radius: 4px;
+}
+
+.account, .cart {
+    color: white;
+    text-decoration: none;
+    margin-left: 20px;
+    font-size: 18px;
+}
+
+.menu-toggle {
+    display: none;
+    cursor: pointer;
+    flex-direction: column;
+    align-items: center;
+    margin-left: 20px;
+}
+
+.menu-toggle span {
+    background-color: white;
+    border-radius: 2px;
+    height: 3px;
+    width: 25px;
+    margin: 3px 0;
+}
+
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        background-color: #333;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .nav-links li {
+        margin: 0;
+    }
+
+    .navbar-right {
+        display: none;
+    }
+
+    .menu-toggle {
+        display: flex;
+    }
+}
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="navbar-container">
+                <!-- Logo -->
+                <div class="logo">
+                    <a href="#">Logo</a>
+                </div>
+                
+                <!-- Navigation Links -->
+                <ul class="nav-links">
+                    <li><a href="#">Home</a></li>
+                    <li>
+                        <a href="#" class="shop">Shop</a>
+                        <ul class="dropdown">
+                            <li><a href="#">Category 1</a></li>
+                            <li><a href="#">Category 2</a></li>
+                            <li><a href="#">Category 3</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#" class="blog">Blog</a></li>
+                    <li><a href="#" class="about">About Us</a></li>
+                </ul>
+                
+                <!-- Right Side Items -->
+                <div class="navbar-right">
+                    <input type="text" placeholder="Search" class="search-input">
+                    <a href="#" class="account">Account</a>
+                    <a href="#" class="cart">Cart</a>
+                </div>
+                
+                <!-- Mobile Menu Toggle Button -->
+                <div class="menu-toggle" id="menu-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+    const menuToggle = document.getElementById('menu-toggle');
+    const navLinks = document.querySelector('.nav-links');
+
+    menuToggle.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+    });
+});
+</script>
+</body>
+</html>

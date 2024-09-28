@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Navbar with Sub-Container</title>
+   <style>
+    body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+.navbar {
+    position: relative;
+}
+
+.main-container {
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    text-align: center;
+}
+
+.sub-container {
+    display: none; /* Hidden by default */
+    background-color: #555;
+    color: #fff;
+    padding: 10px;
+    position: absolute;
+    top: 100%; /* Position below the main container */
+    left: 0;
+    width: 100%; /* Occupy the same width as the main container */
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.sub-container span {
+    display: block;
+    padding: 10px;
+}
+
+.sub-container span:hover {
+    background-color: #666;
+}
+   </style>
+</head>
+<body>
+    <div class="navbar">
+        <div class="main-container" id="mainContainer">
+            <span>Menu</span>
+            <span>about us</span>
+        </div>
+        <div class="sub-container" id="subContainer">
+            <span>Sub Menu Item 1</span>
+            <span>Sub Menu Item 2</span>
+            <span>Sub Menu Item 3</span>
+        </div>
+    </div>
+    <script>
+        document.getElementById('mainContainer').addEventListener('click', function() {
+    const subContainer = document.getElementById('subContainer');
+    if (subContainer.style.display === 'block') {
+        subContainer.style.display = 'none';
+    } else {
+        subContainer.style.display = 'block';
+    }
+});
+    </script>
+</body>
+</html>
